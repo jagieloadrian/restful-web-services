@@ -1,4 +1,4 @@
-package com.anjo.rest.webservices.restfulwebservices;
+package com.anjo.rest.webservices.restfulwebservices.helloworld;
 
 public class HelloWorldBean {
 
@@ -12,10 +12,4 @@ public class HelloWorldBean {
         return message;
     }
 
-    @Override
-    public String toString() {
-        return "HelloWorldBean{" +
-                "message='" + message + '\'' +
-                '}';
-    }
 }
