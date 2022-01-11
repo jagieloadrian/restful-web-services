@@ -2,20 +2,28 @@ package com.anjo.rest.webservices.restfulwebservices.user;
 
 import com.anjo.rest.webservices.restfulwebservices.posts.Post;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue
     private Integer id;
 
     @Size(min = 2, message = "Name should have at least 2 characters")
     private String name;
-
+    @Past
     private Date birthDate;
-
+    @OneToMany(mappedBy = "user")
     private List<Post> posts;
 
     User(Integer id, String name, Date birthDate) {
@@ -23,6 +31,10 @@ public class User {
         this.name = name;
         this.birthDate = birthDate;
         this.posts = new ArrayList<>();
+    }
+
+    public User() {
+
     }
 
     public Integer getId() {

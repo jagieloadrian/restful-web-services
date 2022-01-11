@@ -11,7 +11,6 @@ class PostDaoService {
 
     private UserDaoService service;
 
-
     PostDaoService(UserDaoService service) {
         this.service = service;
     }
@@ -23,7 +22,7 @@ class PostDaoService {
     public Post save(int userId, Post post) {
         User user = service.findOne(userId);
         post.setId(user.getPosts().size());
-        post.setUserId(userId);
+        //post.setUser(userId);
         user.addPost(post);
         return post;
     }
